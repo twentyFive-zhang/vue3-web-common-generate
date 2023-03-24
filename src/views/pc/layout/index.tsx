@@ -7,7 +7,7 @@ const Layout = defineComponent({
   setup() {
     return () => (
       <div {...{ class: 'pc-layout' }}>
-        布局
+        布局123
         <RouterView />
       </div>
     )
