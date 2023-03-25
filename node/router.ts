@@ -1,4 +1,5 @@
 import { mkdir, access, appendFile, writeFile, constants, rm } from 'node:fs/promises'
+import { getAccess } from './utils/fs'
 // import path from 'node:path'
 // import path from 'node:path'
 const path = require('node:path')
@@ -9,16 +10,16 @@ const srcPath = path.resolve(`${__dirname}`, '../src')
 const viewPath = path.resolve(`${__dirname}`, '../src/views')
 console.log(viewPath)
 
-const getAccess = async (p: string) => {
-  try {
-    await access(p, constants.X_OK)
-    return true
-  } catch {
-    console.error(false)
-    await mkdir(p, { recursive: true })
-    return false
-  }
-}
+// export const getAccess = async (p: string) => {
+//   try {
+//     await access(p, constants.X_OK)
+//     return true
+//   } catch {
+//     console.error(false)
+//     await mkdir(p, { recursive: true })
+//     return false
+//   }
+// }
 
 const routes = {
   pc: {
@@ -77,7 +78,6 @@ export default ${kUpper}
   writeFile(`${p}/index.tsx`, tsxString)
   writeFile(`${p}/index.less`, cssString)
 }
-
 
 const createPage = async (p, d, pKey?: string) => {
   if (!pKey) {
